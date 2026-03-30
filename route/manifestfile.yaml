@@ -20,7 +20,7 @@ metadata:
     alb.ingress.kubernetes.io/group.name: roboshop-prod
 spec:
   rules:
-    - host: "devops-project.co.uk"
+    - host: "roboshop.devops-project.co.uk"
       http:
         paths:
           - path: /
