@@ -36,7 +36,7 @@ spec:
         tier: backend
         component: payment
     spec:
-      serviceAccountName: payment-service-accoun
+      serviceAccountName: payment-service-account
       containers:
         - name: payment-cont
           image: meghashyam792/roboshop:payment
