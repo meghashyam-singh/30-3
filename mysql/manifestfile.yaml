@@ -30,7 +30,7 @@ metadata:
     component: mysql
 spec:
   serviceName: mysql-headless-service
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       project: roboshop
