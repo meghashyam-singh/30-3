@@ -32,7 +32,7 @@ spec:
         tier: db
         component: mongodb
     spec:
-      serviceAccountName: mongodb-ServiceAccount
+      serviceAccountName: mongodb-service-account
       containers:
         - name: mongodb-cont
           image: meghashyam792/roboshop:mongodb
@@ -115,7 +115,7 @@ spec:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: mongodb-ServiceAccount
+  name: mongodb-service-account
   namespace: roboshop
   labels:
     project: roboshop

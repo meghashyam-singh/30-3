@@ -32,7 +32,7 @@ spec:
         tier: db
         component: redis
     spec:
-      serviceAccountName: redis-ServiceAccount
+      serviceAccountName: redis-service-account
       containers:
         - name: redis-cont
           image: meghashyam792/roboshop:redis
@@ -115,7 +115,7 @@ spec:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: redis-ServiceAccount
+  name: redis-service-account
   namespace: roboshop
   labels:
     project: roboshop
