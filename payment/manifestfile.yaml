@@ -78,7 +78,7 @@ metadata:
   name: payment
   namespace: roboshop
 spec:
-  type: clusterIP
+  type: ClusterIP
   selector:
     project: roboshop
     tier: backend
