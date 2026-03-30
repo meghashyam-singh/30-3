@@ -164,7 +164,7 @@ spec:
     name: frontend
   minReplicas: 1
   maxReplicas: 10
-  metrixs:
+  metrics:
     - type: Resource
       resource:
         name: cpu
