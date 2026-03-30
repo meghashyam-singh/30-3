@@ -1,0 +1,67 @@
+---
+apiVersion: k8s.networking.io/v1
+kind: Ingress
+metadata:
+  name: roboshop-ingress
+  namespace: roboshop
+  labels:
+    project: roboshop
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:515138251473:certificate/b0ba5d4c-d8d7-4d9c-ba99-4dccb73e9955
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/tags: project=roboshop, environmet=prod
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/healthcheck-path: /health
+    alb.ingress.kubernetes.io/success-codes: '200'
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/group.name: roboshop-prod
+spec:
+  rules:
+    - host: "devops-project.co.uk"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-service
+                port:
+                  number: 80
+          - path: /api/catalogue
+            pathType: Prefix
+            backend:
+              service:
+                name: catalogue-service
+                port:
+                  number: 8080
+          - path: /api/user
+            pathType: Prefix
+            backend:
+              service:
+                name: user-service
+                port:
+                  number: 8080
+          - path: /api/cart
+            pathType: Prefix
+            backend:
+              service:
+                name: cart-service
+                port:
+                  number: 8080
+          - path: /api/shipping
+            pathType: Prefix
+            backend:
+              service:
+                name: shipping-service
+                port:
+                  number: 8080
+          - path: /api/payment
+            pathType: Prefix
+            backend:
+              service:
+                name: payment
+                port:
+                  number: 8080
