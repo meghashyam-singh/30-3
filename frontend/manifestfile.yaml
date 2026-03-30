@@ -103,26 +103,26 @@ spec:
               name: frontend-port
           resources:
             requests:
-              cpu: "300m"
+              cpu: "100m"
               memory: "256Mi"
             limits:
-              cpu: "500m"
-              memory: "512Mi"
+              cpu: "300m"
+              memory: "256Mi"
           readinessProbe:
             httpGet:
               path: /
               port: frontend-port
             failureThreshold: 2
-            initialDelaySeconds: 40
-            periodSeconds: 40
+            initialDelaySeconds: 60
+            periodSeconds: 60
             timeoutSeconds: 15
           livenessProbe:
             httpGet:
               path: /
               port: frontend-port
             failureThreshold: 2
-            initialDelaySeconds: 40
-            periodSeconds: 40
+            initialDelaySeconds: 60
+            periodSeconds: 60
             timeoutSeconds: 15
           volumeMounts:
             - name: frontend-volume
